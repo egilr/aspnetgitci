@@ -19,12 +19,18 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
-    - name: Instal IBM Cloud CLI      
-      run: curl -sL https://ibm.biz/idt-installer | bash
-    - name: Install IBM Cloud Foundry CLI            
-      run: ibmcloud cf install      
-    - name: Check cf
-      run: bx cf
+#    - name: Instal IBM Cloud CLI      
+#      run: curl -sL https://ibm.biz/idt-installer | bash
+#    - name: Install IBM Cloud Foundry CLI            
+#      run: ibmcloud cf install      
+#    - name: Check cf
+#      run: bx cf
+    - name: Install Cloud Foundry
+      run: | 
+      wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
+      echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+      sudo apt-get update
+      curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
     - name: Install dependencies
       run: dotnet restore
     - name: Build
