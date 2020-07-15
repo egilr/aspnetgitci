@@ -26,7 +26,7 @@ jobs:
 #    - name: Check cf
 #      run: bx cf
     - name: Install Cloud Foundry
-      run: wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+      run: wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add - echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
     - name: Install Cloud Foundry
       run: sudo apt-get update
     - name: Install Cloud Foundry
