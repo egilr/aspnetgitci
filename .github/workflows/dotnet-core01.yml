@@ -31,3 +31,6 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+    - name: Login to IBM Cloud
+      run: bx login --apikey ${{ secrets.IBM_CLOUD_API_KEY }}
+      
