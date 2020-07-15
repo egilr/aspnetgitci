@@ -1,9 +1,0 @@
-applications:
-- name: aspnetgitci
-  memory: 512M
-  disk_quota: 2048M
-  timeout: 120
- 
-  env:
-    CACHE_NUGET_PACKAGES: false
-    
