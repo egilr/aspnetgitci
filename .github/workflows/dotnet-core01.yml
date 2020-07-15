@@ -21,10 +21,10 @@ jobs:
         dotnet-version: 3.1.101
     - name: Instal IBM Cloud CLI      
       run: curl -sL https://ibm.biz/idt-installer | bash
-    - name: Instal IBM Cloud CLI            
+    - name: Install IBM Cloud Foundry CLI            
       run: ibmcloud cf install      
     - name: Check cf
-      run: cf
+      run: bx cf
     - name: Install dependencies
       run: dotnet restore
     - name: Build
