@@ -32,5 +32,9 @@ jobs:
     - name: Test
       run: dotnet test --no-restore --verbosity normal
     - name: Login to IBM Cloud
-      run: bx login --apikey ${{ secrets.IBM_CLOUD_API_KEY }} -o egil.larsen@dk.ibm.com -s dev
+      run: bx login --apikey ${{ secrets.IBM_CLOUD_API_KEY }} -o egil.larsen@dk.ibm.com -s dev -r eu-gb
+    - name: Push
+      run: bx cf push
+      
+      
       
