@@ -4,7 +4,6 @@ env:
   ORGANISATION: egil.larsen@dk.ibm.com
   REGION: eu-gb
   SPACE: dev
-  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
 
 on:
   push:
