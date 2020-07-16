@@ -1,5 +1,10 @@
 name: .NET Core
 
+env:
+  ORGANISATION: egil.larsen@dk.ibm.com
+  REGION: eu-gb
+  SPACE: dev
+
 on:
   push:
     branches: [ master ]
@@ -25,19 +30,16 @@ jobs:
       run: ibmcloud cf install      
     - name: Confirm Install Cloud Foundry
       run: bx cf version
-    - name: Install dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
+#    - name: Install dependencies
+#      run: dotnet restore
+#    - name: Build
+#      run: dotnet build --configuration Release --no-restore
+#    - name: Test
+#      run: dotnet test --no-restore --verbosity normal
     - name: Login to IBM Cloud
-      run: bx login --apikey ${{ secrets.IBM_CLOUD_API_KEY }} -o egil.larsen@dk.ibm.com -s dev -r eu-gb
-    - name: ls
-      run: ls -l
+      run: bx login --apikey ${{ secrets.IBM_CLOUD_API_KEY }} -o $ORGANISATION -s $SPACE -r $REGION
+#    - name: ls
+#      run: ls -l
     - name: Push
       run: bx cf push
-      env:
-        DOTNET_CLI_TELEMETRY_OPTOUT: 1    
-      
       
