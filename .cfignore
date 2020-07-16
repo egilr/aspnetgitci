@@ -2,6 +2,8 @@
 .vscode/
 bin/
 obj/
+aspnetgitci/bin
+aspnetgitci/obj
 *.sln
 *.xproj.user
 README.md
