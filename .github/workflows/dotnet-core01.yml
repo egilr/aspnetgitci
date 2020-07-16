@@ -37,6 +37,7 @@ jobs:
       run: ls -l
     - name: Push
       run: bx cf push
-      
+      env:
+        DOTNET_CLI_TELEMETRY_OPTOUT: 1    
       
       
