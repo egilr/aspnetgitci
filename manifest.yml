@@ -4,6 +4,8 @@ applications:
   memory: 512M
   disk_quota: 2048M
   timeout: 120
+  buildpacks:
+    - https://github.com/cloudfoundry/dotnet-core-buildpack.git
  
   env:
     CACHE_NUGET_PACKAGES: false
