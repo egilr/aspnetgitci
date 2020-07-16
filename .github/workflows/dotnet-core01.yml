@@ -20,26 +20,34 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      
 #    - name: Setup .NET Core
 #      uses: actions/setup-dotnet@v1
 #      with:
 #        dotnet-version: 3.1.101
+
     - name: Instal IBM Cloud CLI      
       run: curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
+      
     - name: Install IBM Cloud Foundry CLI            
       run: ibmcloud cf install      
+      
     - name: Confirm Install Cloud Foundry
       run: bx cf version
+      
 #    - name: Install dependencies
 #      run: dotnet restore
 #    - name: Build
 #      run: dotnet build --configuration Release --no-restore
 #    - name: Test
 #      run: dotnet test --no-restore --verbosity normal
+
     - name: Login to IBM Cloud
       run: bx login --apikey ${{ secrets.IBM_CLOUD_API_KEY }} -o $ORGANISATION -s $SPACE -r $REGION
+      
 #    - name: ls
 #      run: ls -l
+
     - name: Push
       run: bx cf push
       
