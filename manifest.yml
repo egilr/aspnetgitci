@@ -6,7 +6,8 @@ applications:
   timeout: 120
 #  buildpacks:
 #    - https://github.com/cloudfoundry/dotnet-core-buildpack.git
- 
+  
   env:
     CACHE_NUGET_PACKAGES: false
-    
+    DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1      
+    DOTNET_CLI_TELEMETRY_OPTOUT: 1
